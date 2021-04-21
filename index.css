@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+form {
+    padding: 40px;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.card-body {
+    background-color: rgb(86, 204, 204);
+}
+
+.enterAmount {
+    border-style:solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: cadetblue;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+div.justify-content-center{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#result {
+    text-align: center;
+    margin-top: 10px;
+}
+
+select {
+    margin-top: 5px;
+}
