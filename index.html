@@ -18,7 +18,7 @@
 
 <body>
     <div class="container">
-        <!-- <h1>Currency Exchange Application</h1> -->
+        <!--<h1>Currency Exchange Application</h1>-->
         <div class="card">
             <div class="card-header text-center">
                 <h3>Currency Exchange Application</h3>
@@ -26,16 +26,18 @@
             </div>
             <div class="card-body">
                 <form>
+                    <!--ENTER the amount of money-->
                     <div class="form-group text-center">
                         <label for="exampleInputEmail1">
                             <h3>------Enter Amount Here------</h3>
                         </label>
-                        <input type="number" class="enterAmount form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="$$$" required>
+                        <input type="text" class="enterAmount form-control" id="userInput"
+                         placeholder="$$$" required />
                     </div>
 
 
                     <div class="row">
+                        <!--Converting from ....-->
                         <div class="col">
                             <label for="from">From Currency:</label>
                             <select id="fromCurrency" class="form-control">
@@ -44,6 +46,7 @@
 
                             </select>
                         </div>
+                         <!--Converting to ....-->
                         <div class="col">
                             <label for="to">To Currency:</label>
                             <select id="toCurrency" class="form-control">
@@ -53,13 +56,15 @@
                         </div>
                     </div>
 
+                    <!--convert button-->
                     <div class="justify-content-center">
-                        <button type="button" class="btn btn-primary btn-lg">Convert</button>
+                        <button id="convert" type="submit" class="btn btn-primary btn-lg">Convert</button>
 
                     </div>
 
-                    <div id="result">
-                        <p>Result: <span>14 USD is equivalent to 45 Euro</span></p>
+                    <!--money equivalent display here-->
+                    <div id="results">
+                        <p>Result:</p><span id="result">14 USD is equivalent to 45 Euro</span>
                     </div>
                 </form>
             </div>
@@ -67,7 +72,7 @@
     </div>
 
 
-    <script src=""></script>
+    <script src="index.js"></script>
 </body>
 
 </html>

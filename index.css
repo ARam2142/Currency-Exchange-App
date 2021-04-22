@@ -39,7 +39,11 @@ div.justify-content-center{
     margin-top: 20px;
 }
 
-#result {
+/* button {
+    border-radius: 20%;
+} */
+
+#results {
     text-align: center;
     margin-top: 10px;
 }
