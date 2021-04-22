@@ -9,34 +9,40 @@
 //submitting the convert button will give the user the equivalent currency amount to the selected currency
 
 //grab elements 
-const fromCurrency = document.getElementById("fromCurrency"); console.log(fromCurrency)
+const fromCurrency = document.getElementById("fromCurrency");
 const toCurrency = document.getElementById("toCurrency");
 const convertBtn = document.getElementById('convert');
 const result = document.querySelector('result');
 const apiKey = '7ebff14093ba09068127633d';
 
-const app = () => {
+function fetchApi(){
 
-    fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`, {
-        method: "GET",
-    })
-    .then(function(response) {  
+    fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`)
+
+    .then(response => { 
         return response.json()
-    }).then(function(data) {
-        console.log(data)
-        // appendData(data)
-        }).catch(function(err) {
-            console.log(err)
-        })
-}
-app()
-
-// function appendData(data) {
-//     let option = document.createElement('option');
-//     for (let i = 0; i < data.length; i++) {
-//         const element = array[i];
-        
-//     }
+               
+    }).then(data => {
+        //console.log(data)
+        let jsonData = data.conversion_rates;
+        const newArr = Object.keys(jsonData); console.log(newArr);
+        appendData(newArr)
+                
+    }).catch(err => {
+        console.log(err)
+    })
     
-// }
-// appendData()
+    const appendData = (newArr) => {
+            console.log(newArr);
+            let output = ''
+        for (let i = 0; i < newArr.length; i++) {
+            output = `<option>${newArr[i]}</option>`;
+            fromCurrency.innerHTML += output
+            toCurrency.innerHTML += output
+        }
+        
+    }
+    
+}
+
+fetchApi();
