@@ -1,20 +1,14 @@
-//grab elements from html
-//get target.value of user input
-//userInput is to match the currency that will be converted
-//currency options for 
-//fetch exchangeRate-api
-//make sure button submits
-//options should hook with name of currency ex. yen, euro, usd
-//user has option to select the currency to convert from and currenty to convert to 
-//submitting the convert button will give the user the equivalent currency amount to the selected currency
-
 //grab elements 
-const userInput = document.getElementById('userInput');
-const fromCurrency = document.getElementById("fromCurrency");
-const toCurrency = document.getElementById("toCurrency");
+const amountEl = document.getElementById('amount');
+const fromCurrencyEl = document.getElementById("fromCurrency");
+const toCurrencyEl = document.getElementById("toCurrency");
 const convertBtn = document.getElementById('convert');
-const result = document.querySelector('result');
+// const fromAmount = document.getElementById('baseCurrency');
+// const toAmount = document.getElementById('targetCurrency'); //console.log(toAmount)
+const conversion = document.getElementById('results');
 const apiKey = '7ebff14093ba09068127633d';
+
+let usdAmount;
 
 function fetchApi() {
 
@@ -43,32 +37,31 @@ function fetchApi() {
         }
     }
 
-    const submitResult = () => {
-        let input = userInput.value;
-        console.log(input)
     
+    
+    //get fromCurrency and toCurrency
+    const convertCurrency= (newArr, jsonData, data) => {
+        //const fromCurrency = 
+        fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/enriched/GBP/JPY`)
+        
     }
+
+    fromCurrencyEl.addEventListener('change', convertCurrency)
+    amountEl.addEventListener('input', convertCurrency)
+    toCurrencyEl.addEventListener('change', convertCurrency);
+    // fromAmount.addEventListener('change', convertCurrency);
+    // toAmount.addEventListener('change', convertCurrency)
     
-    const submitConversion = convertBtn;
-    submitConversion.addEventListener('click', e => {
-        submitResult();
+
+    convertBtn.addEventListener('click', e => {
+        const temp = fromCurrencyEl.value; //console.log(temp)
+        fromCurrencyEl.value = toCurrencyEl.value; console.log(fromCurrencyEl.value)
+        toCurrencyEl.value = temp; console.log(toCurrencyEl.value);
+        let output = `<p>14 ${fromCurrencyEl.value} is equivalent to 45 ${toCurrencyEl.value}</p>`;
+        conversion.innerHTML = output;
+        convertCurrency();
         e.preventDefault()
-    
     })
     
-    const convertCurrency= (newArr, jsonData, data) => {
-        input = userInput.value;
-        console.log(input);
-
-        let monetaryVal = jsonData
-        console.log(monetaryVal);
-
-    }
-    convertCurrency()
-    
-    
 }
-
-
-
 fetchApi();
