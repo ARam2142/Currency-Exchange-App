@@ -24,11 +24,11 @@ function fetchApi() {
             return response.json()
 
         }).then(data => {
-            //console.log(data)
+            console.log(data)
             let jsonData = data.conversion_rates;
-            const newArr = Object.keys(jsonData); console.log(newArr);
+            const newArr = Object.keys(jsonData);
             appendData(newArr)
-            amount(newArr, jsonData)
+            convertCurrency(newArr, jsonData, data)
         }).catch(err => {
             console.log(err)
         })
@@ -43,25 +43,32 @@ function fetchApi() {
         }
     }
 
-    //get the value of what ever the user types in.
-    //get the value to match the currency from the api
-    //user chooses currency and then hits convert button which will display on the bottom
-
-    const amount = (newArr, jsonData) => {
-        //console.log(jsonData)
-        let monetaryVal = jsonData
-
-        for (const key in monetaryVal) {
-            console.log(`${key}: ${monetaryVal[key]}`)
-        }
-        userInput.addEventListener('keyup', e => {
-            let keyPress = e.target.value
-            console.log(keyPress)
-        });
+    const submitResult = () => {
+        let input = userInput.value;
+        console.log(input)
+    
     }
-    amount()
+    
+    const submitConversion = convertBtn;
+    submitConversion.addEventListener('click', e => {
+        submitResult();
+        e.preventDefault()
+    
+    })
+    
+    const convertCurrency= (newArr, jsonData, data) => {
+        input = userInput.value;
+        console.log(input);
 
+        let monetaryVal = jsonData
+        console.log(monetaryVal);
 
+    }
+    convertCurrency()
+    
+    
 }
+
+
 
 fetchApi();
