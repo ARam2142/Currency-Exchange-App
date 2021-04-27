@@ -16,6 +16,8 @@ form {
 }
 
 .card {
+    font-size: 18px;
+    font-weight: 600;
     margin-top: 40px;
     border-style: solid;
 }
