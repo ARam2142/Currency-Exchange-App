@@ -49,8 +49,11 @@ convertBtn.addEventListener('click', e => {
     
     let currencyNameFrom = fromCurrencyEl.options[fromCurrencyEl.selectedIndex];
     let currencyNameTo = toCurrencyEl.options[toCurrencyEl.selectedIndex];
+
     let output = `
     <p> ${fromCurrencyEl.value} ${currencyNameFrom.text} = ${toCurrencyEl.value} ${currencyNameTo.text}</p>
     <h4>${amountEl.value} ${currencyNameFrom.text} = ${(amountEl.value * currency_rate)} ${currencyNameTo.text}</h4>`;
-    conversion.innerHTML = output;
+    if (amountEl.value) {
+        conversion.innerHTML = output;       
+    }
 })
